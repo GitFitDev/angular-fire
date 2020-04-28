@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
@@ -19,6 +21,7 @@ import { PastTrainingComponent } from './training/past-training/past-training.co
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { StopTrainingComponent } from './training/current-training/stop-training.component';
+import { AngularFireModule } from '@angular/fire';
 
 
 
@@ -43,7 +46,9 @@ import { StopTrainingComponent } from './training/current-training/stop-training
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
