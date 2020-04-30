@@ -48,7 +48,7 @@ import { AngularFireModule } from '@angular/fire';
     FormsModule,
     ReactiveFormsModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
