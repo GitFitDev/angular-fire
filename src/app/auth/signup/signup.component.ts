@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
-import { UiService } from '../../shared/ui.service';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../app.reducer';
@@ -11,11 +10,14 @@ import * as fromRoot from '../../app.reducer';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent implements OnInit{
+export class SignupComponent implements OnInit {
   maxDate;
   isLoading$: Observable<boolean>;
 
-  constructor(private authService: AuthService, private store: Store<fromRoot.State>) {}
+  constructor(
+    private authService: AuthService,
+    private store: Store<fromRoot.State>
+  ) {}
 
   ngOnInit() {
     this.isLoading$ = this.store.select(fromRoot.getIsLoading);

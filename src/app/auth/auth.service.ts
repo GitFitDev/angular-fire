@@ -50,11 +50,10 @@ export class AuthService {
     this.afAuth
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then((result) => {
-        this.uiService.loadingStateChanged.next(false);
+        this.store.dispatch(new UI.StopLoading());
       })
       .catch((error) => {
         this.uiService.showSnackbar(error.message, null, 3000);
-        this.store.dispatch(new UI.StopLoading());
       });
   }
 
